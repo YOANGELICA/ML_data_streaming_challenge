@@ -10,9 +10,9 @@ services: #Containers to run
     ports: #maps port 2181 from the host to por 2181 inside the zookeeper container, allows to access zookeeper on port 2181 of your host machine
       - 2181:2181
 
-  kafka-test: # Second container (Service)
+  kafka-workshop: # Second container (Service)
     image: confluentinc/cp-kafka:latest #latest version of kafka docker image
-    container_name: kafka-test #Name of the container
+    container_name: kafka-workshop #Name of the container
     depends_on:
       - zookeeper #depends on zookeeper so kafka will not start until zookeeper service is up and running
     environment:
