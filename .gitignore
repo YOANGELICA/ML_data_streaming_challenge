@@ -1,4 +1,10 @@
 db_config.json
+
 data/
 venv/
+
 __pycache__/
+
+rf_regressor.pkl
+
+docker-compose.yml
