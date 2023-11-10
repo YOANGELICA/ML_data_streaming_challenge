@@ -27,9 +27,7 @@ def predict(m):
 
    df['Predicted Happiness Score'] = prediction
 
-   # cols = ['GDP per capita', 'Health (Life Expectancy)', 'Freedom', 'Generosity', 'Government Corruption', 'Happiness Score', 'Predicted Happiness Score']
-   # df[cols] = df[cols].astype(float)
-   print(df.head())
+   # print(df.head())
 
    return df
 
