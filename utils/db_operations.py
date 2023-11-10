@@ -113,5 +113,5 @@ def get_data():
     except mysql.connector.Error as err:
         print(f"Error while getting data: {err}")
 
-if __name__ == "__main__":
-    get_data()
+# if __name__ == "__main__":
+#    get_data()
