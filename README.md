@@ -24,7 +24,7 @@ All of these datasets contain information about the happiness in different count
 
 The repository has the following structure:
 - `requirements.txt`: This file contains the necessary dependencies for the project.
-- ['config'](./config) folder:
+- ['utils'](./utils) folder:
    - `db_operations.py`: This file contains all the methods used for the database such as connection, creating table, and loading data.
    - `transformations.py`: This file contains all the methods used for the transformation of the data.
 - `producer.py`: This file contains the kafka producer that streams the data.
