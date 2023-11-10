@@ -67,6 +67,11 @@ Follow these steps to run the project:
     > **Note:** This file is necessary, by not having it you won't be able to access the database unless you state the credentials directly (not recommended). If you choose to give it a different name or location, you must change the the access route in the code.
     >
 
+5. Launch the containers:
+
+   ```bash
+   docker compose up
+   ```
 
 Now you're all set to start exploring the project!
 
