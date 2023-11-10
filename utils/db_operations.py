@@ -1,21 +1,22 @@
+import json
 import mysql.connector
 import pandas as pd
-import json
 
 
 def connection():
 
     try:
-        json_file = 'db_config.json'
+        json_file = '../config/db_config.json'
 
         with open(json_file) as config_json:
             config = json.load(config_json)
 
         conx = mysql.connector.connect(**config)
+        print("Succesfully connected to the database")
         return conx
     
     except mysql.connector.Error as err:
-        print(f"Error al conectar a la base de datos: {err}")
+        print(f"Error while connecting to the database : {err}")
         return None
     
 
@@ -84,5 +85,33 @@ def load(data):
     except mysql.connector.Error as err:
         print(f"Error while inserting data: {err}")
 
-# if __name__ == "__main__":
-#     create_table()
+def get_data():
+        
+    try: 
+        conx = connection()
+        cursor = conx.cursor()
+
+        get_data = "SELECT * FROM happinessdata"
+        
+        cursor.execute(get_data)
+
+        data = cursor.fetchall()
+        columns = ['ID', 'GDP_per_capita', 'Health_Life_Expectancy', 'Freedom', 'Generosity', 'Government_Corruption',
+                   'Continent_Africa', 'Continent_America', 'Continent_Asia', 'Continent_Europe', 'Continent_Oceania',
+                   'Happiness_Score', 'Predicted_Happiness_Score']
+        
+        df = pd.DataFrame(data, columns=columns)
+
+        conx.commit()
+        cursor.close()
+        conx.close()
+
+        # print(df.head())
+        print("Data fetched successfully")
+        return df
+
+    except mysql.connector.Error as err:
+        print(f"Error while getting data: {err}")
+
+if __name__ == "__main__":
+    get_data()

@@ -1,5 +1,6 @@
-import pandas as pd
 import country_converter as coco
+import pandas as pd
+
 
 def get_continent(country_name):
     cc = coco.CountryConverter()
