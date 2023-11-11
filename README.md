@@ -6,7 +6,6 @@ Welcome to the Machine learning Data Streaming Code Challenge! This project leve
 
 Before running this project, you need to have the following prerequisites in place:
 
-- Apache Kafka
 - Python
 - MySQL Database
 
@@ -28,9 +27,11 @@ The repository has the following structure:
    - `db_operations.py`: This file contains all the methods used for the database such as connection, creating table, and loading data.
    - `transformations.py`: This file contains all the methods used for the transformation of the data.
 - `producer.py`: This file contains the kafka producer that streams the data.
-- `consumer.py`: This file contains the kafka consumer that receives the data, makes the prediction and loads into the databse.
+- `consumer.py`: This file contains the kafka consumer that receives the data, makes the prediction and loads into the database.
+- `docker-compose.yml`: This file contains the kafka configuration.
 - ['notebooks'](./notebooks) folder:
    - `model_train.ipynb`: This file contains the exploratory data analysis of the data and the model training.
+   - `rf_regressor.pkl`: This file corresponds to the trained model.
    - `metrics.py`: This file contains the evaluation of the model's performance.
 
 
