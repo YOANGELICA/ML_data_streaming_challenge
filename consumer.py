@@ -41,12 +41,19 @@ def kafka_consumer():
         group_id='my-group-1',
         value_deserializer=lambda m: loads(m.decode('utf-8')),
         bootstrap_servers=KAFKA_BOOTSTRAP_SERVERS
-        )
+    )
 
-    for m in consumer:
-      row = predict(m)
-      db.load(row)
+    while True:
+        message = consumer.poll(timeout_ms=5000)  # wait 5 seconds for messages
 
+        if not message:
+            break  # no more messagges, exit the loop
+        
+        for _, messages in message.items():
+            
+            for m in messages:
+                row = predict(m)
+                db.load(row)
 
 if __name__ == '__main__':
    

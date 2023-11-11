@@ -1,14 +1,19 @@
 import json
 import mysql.connector
 import pandas as pd
+import os
 
+
+# current file directory route
+current_dir = os.path.dirname(os.path.abspath(__file__))
+# config flie route
+config_path = os.path.join(current_dir, '../config/db_config.json')
 
 def connection():
 
     try:
-        json_file = '../config/db_config.json'
 
-        with open(json_file) as config_json:
+        with open(config_path) as config_json:
             config = json.load(config_json)
 
         conx = mysql.connector.connect(**config)
